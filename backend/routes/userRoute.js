@@ -1,6 +1,7 @@
 import express from 'express'
 import { register, reVerify, verify ,login,logout, forgotPassword, verifyOTP, changePassword, allUser, getUserById} from '../controllers/userController.js'
-import { isAuthenticated } from '../middleware/isAuthenticated.js'
+import { isAuthenticated, isAdmin } from "../middleware/isAuthenticated.js";
+
 
 
 const router = express.Router()

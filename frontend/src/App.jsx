@@ -1,19 +1,32 @@
+
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Signup from "./pages/Signup";
+import Verify from "./pages/ Verify";
+import VerifyEmail from "./pages/VerifyEmail";
 
 function Home() {
-  return <h1>Home Page</h1>;
+  return <h1 className="p-10 text-2xl">Home Page</h1>;
 }
 
 function Login() {
-  return <h1>Login Page</h1>;
+  return <h1 className="p-10 text-2xl">Login Page</h1>;
 }
-
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/verify" element={<Verify />} />
+        <Route path="/verify/:token" element={<VerifyEmail/>} />
+
+
+      </Routes>
+    </>
   );
 }
