@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Eye, EyeOff } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import axios from "axios";
+import React, { useState } from "react"; 
+import { Button } from "@/components/ui/button"; import {
+   Card, 
+   CardContent, 
+   CardDescription, 
+   CardFooter, 
+   CardHeader,
+    CardTitle,
+   } from "@/components/ui/card";
+   import { Input } from "@/components/ui/input";
+   import { Label } from "@/components/ui/label";
+   import { EyeOff,Eye,Loader2 } from "lucide-react";
+   import { Link, useNavigate } from 'react-router-dom'
+   import { toast } from 'sonner'
+   import axios from 'axios'
 
 const Signup = () => {
     const [showPassword,setShowPassword] = useState(false)

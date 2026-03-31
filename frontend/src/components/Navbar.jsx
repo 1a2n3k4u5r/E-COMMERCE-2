@@ -1,14 +1,61 @@
-import { Link } from "react-router-dom";
+import { setUser } from '@/redux/userSlice';
+import axios from 'axios';
+import { shoppingcart } from 'lucide-react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'sonner';
 
-export default function Navbar() {
+
+ const Navbar = () => {
+  // const user = true
+  const { user } = useSelector(store=>store.user)
+  const accessToken = localStorage.getItem('accessToken')
+  const dispatch = useDispatch()
+  const navigate = useNavigate
+
+  const logoutHandler = async()=>{
+    try {
+      const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
+        header:{
+          Authorization:`Bearer ${accessToken}`
+        }
+      })
+      if(res.data.success){
+        dispatch(setUser(null))
+        toast.success(res.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
-    <nav className="flex justify-between p-4 bg-black text-white">
-      <h1 className="text-xl">E-Shop</h1>
-
-      <div className="space-x-4">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+    <header className='bg-pink-50 fixed w-full z-20 border-b border-pink-200'>
+      <div className='max-w-7xl mx-auto flex justify-between items-center py-3'>
+        {/* logo section */}
+        <div>
+          <img src="/Ekart.png" alt="" className='w-[100px]' />
+        </div>
+        {/* nav section */}
+        <nav className='flex gap-10 justify-between items-center'>
+          <u1 className='flex gap-7 items-center text-x1 font-semibold'>
+            <Link to={'/'}><li>Home</li></Link>
+            <Link to={'/product'}><li>Product</li></Link>
+            {
+              user && <link to={'/profile'}><li>Hello,{user.firstName}</li></link>
+            }
+            </u1>
+            <Link to={'/cart'} className='relative'>
+            <ShoppingCart />
+            <span className='bg-pink-500 rounded-full absolute text-white -top-3 -right-5 px-2'>0</span>
+            </Link>
+            {
+              user ? <Button onClick={logoutHandler} className='bg-pink-600 text-white cursor-pointer'>Logout</Button>: <Button onClick={()=>navigate('/login')}className='bg-gradient-to-tl from-blue-600 to-purple-600 text-white cursor-pointer'>Login</Button>
+            }
+        </nav>
       </div>
-    </nav>
-  );
-}
+    </header>
+  )
+ }
+
+ export default Navbar
