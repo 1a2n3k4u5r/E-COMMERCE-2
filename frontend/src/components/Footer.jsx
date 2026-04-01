@@ -77,3 +77,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+// This file creates the Footer section of your website

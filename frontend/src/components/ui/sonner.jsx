@@ -46,3 +46,6 @@ const Toaster = ({
 }
 
 export { Toaster }
+
+
+// This file is used to show notifications (toast messages)

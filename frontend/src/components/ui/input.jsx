@@ -20,3 +20,9 @@ function Input({
 }
 
 export { Input }
+
+// it handles:
+// text
+// email
+// password
+// file upload

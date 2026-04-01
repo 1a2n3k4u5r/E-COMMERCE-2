@@ -1,10 +1,12 @@
 import { setUser } from '@/redux/userSlice';
 import axios from 'axios';
-import { shoppingcart } from 'lucide-react'
+import { ShoppingCart } from "lucide-react";
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'sonner';
+import { Button } from "@/components/ui/button";
+
 
 
  const Navbar = () => {
@@ -12,12 +14,12 @@ import { toast } from 'sonner';
   const { user } = useSelector(store=>store.user)
   const accessToken = localStorage.getItem('accessToken')
   const dispatch = useDispatch()
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   const logoutHandler = async()=>{
     try {
       const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
-        header:{
+        headers:{
           Authorization:`Bearer ${accessToken}`
         }
       })
@@ -38,13 +40,13 @@ import { toast } from 'sonner';
         </div>
         {/* nav section */}
         <nav className='flex gap-10 justify-between items-center'>
-          <u1 className='flex gap-7 items-center text-x1 font-semibold'>
+          <ul className='flex gap-7 items-center text-xl font-semibold'>
             <Link to={'/'}><li>Home</li></Link>
             <Link to={'/product'}><li>Product</li></Link>
             {
-              user && <link to={'/profile'}><li>Hello,{user.firstName}</li></link>
+              user && <Link to={'/profile'}><li>Hello,{user.firstName}</li></Link>
             }
-            </u1>
+            </ul>
             <Link to={'/cart'} className='relative'>
             <ShoppingCart />
             <span className='bg-pink-500 rounded-full absolute text-white -top-3 -right-5 px-2'>0</span>

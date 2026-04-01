@@ -47,3 +47,6 @@ const Features = () => {
 };
 
 export default Features;
+
+
+// This component is used to show key features of your website

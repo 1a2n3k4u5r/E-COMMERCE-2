@@ -112,3 +112,13 @@ export {
   CardDescription,
   CardContent,
 }
+ 
+
+// This code is used to create reusable UI components for your app.
+
+// 👉 Instead of writing design again and again, you use:
+
+// <Card />
+// <CardHeader />
+// <CardContent />
+// <CardFooter />

@@ -1,6 +1,8 @@
 import * as React from "react"
 import { cva } from "class-variance-authority";
-import { Slot } from "radix-ui"
+import { Slot } from "@radix-ui/react-slot"
+
+
 
 import { cn } from "@/lib/utils"
 
@@ -48,7 +50,7 @@ function Button({
   asChild = false,
   ...props
 }) {
-  const Comp = asChild ? Slot.Root : "button"
+  const Comp = asChild ? Slot: "button"
 
   return (
     <Comp
@@ -60,4 +62,7 @@ function Button({
   );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
+
+
+// It only handles styling,variants,sizes.

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Label as LabelPrimitive } from "radix-ui"
+import * as LabelPrimitive from "@radix-ui/react-label"
 
 import { cn } from "@/lib/utils"
 
@@ -19,3 +19,9 @@ function Label({
 }
 
 export { Label }
+
+
+// I can show you:
+//  floating labels (like modern UI)
+//  animated input labels
+//  form validation with labels

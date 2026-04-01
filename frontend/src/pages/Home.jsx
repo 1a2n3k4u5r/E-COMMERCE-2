@@ -1,5 +1,6 @@
-import Hero from '@/components/Hero'
-import Features from '@/components/Features'
+import Hero from '../components/Hero'
+import Features from '../components/Features'
+
 import React from 'react'
 
 const Home = ()=> {
@@ -11,5 +12,6 @@ const Home = ()=> {
     )
 }
 
-export default Home
+export default Home;
+
  
